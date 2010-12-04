@@ -21,3 +21,7 @@ node[:authorization][:sudo][:extensions] << <<-SUDO.gsub(/^ {2}/, '')
 ### ensure vagrant user has sudo ###
   vagrant ALL=(ALL) ALL
 SUDO
+
+ruby_block "rebuild-sudoers" do
+  notifies :create, "tempate[/etc/sudoers]"
+end
