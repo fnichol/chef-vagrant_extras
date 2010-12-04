@@ -16,3 +16,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+node[:authorization][:sudo][:extensions] << <<-SUDO.gsub(/^ {2}/, '')
+### ensure vagrant user has sudo ###
+  vagrant ALL=(ALL) ALL
+SUDO
