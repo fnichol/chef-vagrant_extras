@@ -19,7 +19,7 @@
 
 node[:authorization][:sudo][:extensions] << <<-SUDO.gsub(/^ {2}/, '')
 ### ensure vagrant user has sudo ###
-  vagrant ALL=(ALL) ALL
+  vagrant ALL=NOPASSWD: ALL
 SUDO
 
 ruby_block "rebuild-sudoers" do
