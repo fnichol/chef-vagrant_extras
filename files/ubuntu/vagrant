@@ -1,0 +1,2 @@
+# vagrant user needs no sudo password prompt
+vagrant ALL=NOPASSWD: ALL

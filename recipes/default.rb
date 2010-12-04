@@ -17,11 +17,6 @@
 # limitations under the License.
 #
 
-node[:authorization][:sudo][:extensions] << <<-SUDO.gsub(/^ {2}/, '')
-### ensure vagrant user has sudo ###
-  vagrant ALL=NOPASSWD: ALL
-SUDO
-
-ruby_block "rebuild-sudoers" do
-  notifies :create, "tempate[/etc/sudoers]"
+cookbook_file "/etc/sudoers.d/vagrant" do
+  mode 00440
 end
