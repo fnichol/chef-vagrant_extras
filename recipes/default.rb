@@ -18,6 +18,7 @@
 #
 
 cookbook_file "/etc/sudoers.d/vagrant" do
+  source "vagrant.sudoers"
   mode 00440
 end
 
