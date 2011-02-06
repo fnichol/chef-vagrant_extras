@@ -22,7 +22,9 @@ cookbook_file "/etc/sudoers.d/vagrant" do
   mode 00440
 end
 
-group "rvm" do
-  members ["vagrant"]
-  append  true
+unless node[:rvm].nil?
+  group "rvm" do
+    members ["vagrant"]
+    append  true
+  end
 end
