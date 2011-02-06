@@ -4,3 +4,9 @@ license          "Apache 2.0"
 description      "Fixes some chef recipe config stomping (esp. sudoers)"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 version          "0.1"
+
+recipe "vagrant_extras",  "Default recipe"
+
+%w{ ubuntu suse }.each do |os|
+  supports os
+end

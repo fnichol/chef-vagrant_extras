@@ -17,14 +17,25 @@
 # limitations under the License.
 #
 
-cookbook_file "/etc/sudoers.d/vagrant" do
-  source "vagrant.sudoers"
-  mode 00440
+if platform?("ubuntu")
+  cookbook_file "/etc/sudoers.d/vagrant" do
+    source  "vagrant.sudoers"
+    mode    "0440"
+  end
 end
 
 unless node[:rvm].nil?
-  group "rvm" do
-    members ["vagrant"]
-    append  true
+  template "/usr/local/bin/chef-solo" do
+    source    "chef-solo-wrapper.erb"
+    owner     "root"
+    group     "root"
+    mode      "0755"
+  end
+
+  unless platform?("suse")
+    group "rvm" do
+      members ["vagrant"]
+      append  true
+    end
   end
 end
