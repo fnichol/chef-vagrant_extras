@@ -32,10 +32,8 @@ unless node[:rvm].nil?
     mode      "0755"
   end
 
-  unless platform?("suse")
-    group "rvm" do
-      members ["vagrant"]
-      append  true
-    end
+  group "rvm" do
+    members ["vagrant"]
+    append  true
   end
 end
