@@ -1,12 +1,14 @@
 maintainer       "Fletcher Nichol"
 maintainer_email "fnichol@nichol.ca"
 license          "Apache 2.0"
-description      "Fixes some chef recipe config stomping (esp. sudoers)"
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
-version          "0.1"
+description      "Extra fixes and shims for running your recipes in a Vagrant VM."
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          "0.1.9"
+
+supports "ubuntu"
+supports "debian"
+supports "suse"
+
+recommends "sudo"
 
 recipe "vagrant_extras",  "Default recipe"
-
-%w{ ubuntu suse }.each do |os|
-  supports os
-end
