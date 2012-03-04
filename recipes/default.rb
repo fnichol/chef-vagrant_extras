@@ -23,17 +23,3 @@ if platform?("ubuntu")
     mode    "0440"
   end
 end
-
-unless node['rvm'].nil?
-  template "/usr/local/bin/chef-solo" do
-    source    "chef-solo-wrapper.erb"
-    owner     "root"
-    group     "root"
-    mode      "0755"
-  end
-
-  group "rvm" do
-    members ["vagrant"]
-    append  true
-  end
-end
