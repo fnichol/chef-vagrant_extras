@@ -18,8 +18,8 @@
 #
 
 if platform?("ubuntu")
-  cookbook_file "/etc/sudoers.d/vagrant" do
-    source  "vagrant.sudoers"
+  template "/etc/sudoers.d/vagrant" do
+    source  "vagrant.sudoers.erb"
     mode    "0440"
   end
 end
