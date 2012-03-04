@@ -24,7 +24,7 @@ if platform?("ubuntu")
   end
 end
 
-unless node[:rvm].nil?
+unless node['rvm'].nil?
   template "/usr/local/bin/chef-solo" do
     source    "chef-solo-wrapper.erb"
     owner     "root"
