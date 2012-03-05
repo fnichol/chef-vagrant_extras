@@ -17,9 +17,7 @@
 # limitations under the License.
 #
 
-if platform?("ubuntu")
-  template "/etc/sudoers.d/vagrant" do
-    source  "vagrant.sudoers.erb"
-    mode    "0440"
-  end
+template "/etc/sudoers.d/vagrant" do
+  source  "vagrant.sudoers.erb"
+  mode    "0440"
 end
