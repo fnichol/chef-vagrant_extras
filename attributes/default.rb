@@ -19,6 +19,7 @@
 # limitations under the License.
 #
 
-if platform?("suse")
+case platform
+when "suse"
   node['authorization']['sudo']['users'].push("vagrant")
 end
